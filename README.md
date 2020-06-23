@@ -17,8 +17,9 @@ Install dependencies with `npm install`.
 There are three npm scripts to run this application:
 
 1. `npm run test` - tests contracts in `/contracts` with the tests in `/tests`
-2. `npm run start` - compiles contracts and starts the front-end application
-3. `npm run compile` - compiles contracts and stores an artifact in `/app`
+2. `npm run start` - deploys & compiles contracts and starts the front-end application
+3. `npm run deploys` - compiles and deploys contracts to the localhost:8545
+4. `npm run compile` - compiles contracts and stores artifacts in `/app/artifacts`
 
 This application using [Parcel](https://parceljs.org/) to bundle assets and run.
 
