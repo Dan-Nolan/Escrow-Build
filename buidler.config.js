@@ -15,6 +15,9 @@ task("accounts", "Prints the list of accounts", async () => {
 // defaultNetwork, networks, solc, and paths.
 // Go to https://buidler.dev/config/ to learn more
 module.exports = {
+  localhost: {
+    url: "http://127.0.0.1:8545"
+  },
   solc: {
     version: "0.6.8",
   },
