@@ -1,4 +1,9 @@
 const bre = require("@nomiclabs/buidler");
+const fs = require('fs');
+const path = require('path');
+const ARTIFACTS_DIR = path.join(".", "app", "artifacts");
+const CONTRACT_ARTIFACT = 'Meta.json';
+const CONTRACT_ARTIFACT_PATH = path.join(ARTIFACTS_DIR, CONTRACT_ARTIFACT);
 
 async function main() {
   const [depositor, arbiter, beneficiary] = await ethers.provider.listAccounts();
@@ -6,6 +11,12 @@ async function main() {
   const escrow = await Escrow.deploy(arbiter, beneficiary);
 
   await escrow.deployed();
+
+  // add escrow address to artifacts!
+  fs.writeFileSync(
+    CONTRACT_ARTIFACT_PATH,
+    JSON.stringify({ address: escrow.address })
+  );
 
   console.log("Escrow deployed to:", escrow.address);
 }
